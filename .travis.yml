@@ -25,6 +25,7 @@ after_success:
   - docker push jstuck/multi-worker
 
 deploy:
+  edge: true
   provider: elasticbeanstalk
   region: us-east-2
   app: multi-docker-react
