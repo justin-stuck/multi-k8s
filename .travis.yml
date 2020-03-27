@@ -23,4 +23,15 @@ after_success:
   - docker push jstuck/multi-nginx
   - docker push jstuck/multi-server
   - docker push jstuck/multi-worker
-  
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker-react
+  env: MultiDockerReact-env
+  bucket_name: elasticbeanstalk-us-east-2-081177934285
+  bucket_path: docker-multi-react
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
